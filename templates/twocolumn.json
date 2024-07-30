@@ -1,0 +1,13 @@
+{
+    "documentclass":"article",
+    "font":10,
+    "sheetsize":"a4paper",
+    "columnformat":"twocolumn",
+    "packages":["[utf8]{inputenc}","{natbib}","{multicol}","{fancyhdr}","{setspace}","{indentfirst}",
+                "{amsmath}","{graphicx}","{caption}","{float}","{amsthm}","{amsmath}","{amssymb}",
+                "{pbsi}","{gensymb}","{wrapfig}","{multicol}","[shortlabels]{enumitem}","{cancel}",
+                "{esint}","{subfig}","{color}","{moreverb}","{wrapfig}","[table,xcdraw]{xcolor}","{gensymb}","[numbered]{matlab-prettifier}",
+                "[hidelinks]{hyperref}\n\\hypersetup{\n    colorlinks = true, \n    urlcolor = blue,\n    linkcolor = blue, \n    citecolor = blue \n}"
+                ,"{indentfirst}","{multirow}","{hhline}","[super]{nth}","{cleveref}","{enumitem}","[framed,numbered,autolinebreaks,useliterate]{mcode}",
+                "usepackage[subrefformat=parens,labelformat=parens]{subcaption}","[a4paper]{geometry}"]
+}
