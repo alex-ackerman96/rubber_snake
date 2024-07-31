@@ -1,3 +1,4 @@
+import os
 import json
 from typing import Union
 
@@ -44,20 +45,46 @@ class Document():
         self.documentstart = f"\\begin{{document}}"
         self.documentend = f"\end{{document}}"
         
-        self.content = [self.documenthead, self.documentstart, self.documentend]
+        self.content = [self.documenthead, self.documentstart, f"\section{{ghghghghgh}}", self.documentend]
     
     def load_json(self, filename):
         with open(filename, 'r') as file:
             data = json.load(file)
         return data
             
-    def save_doc_to_file(self, filename : str = "untitled"):
+    def save_to_file(self, filename : str = "main"):
         
         filename += ".tex"
         self.filename = filename 
         with open(filename, 'w') as file:
             for line in self.content:
                 file.write(line + "\n")
+
+    def save_to_directory(self, path : str = None, dirname : str = "New_TeX_Project"):
+
+        if path == None:
+            path = os.getcwd()
+
+        fullpath = os.path.join(path, dirname)
+        figspath = os.path.join(fullpath, "figures")
+
+        # Check if the directory exists
+        if not os.path.isdir(fullpath):
+            # Create the directory
+            os.makedirs(fullpath)
+            print(f"Directory '{fullpath}' created.")
+            if not os.path.isdir(figspath):
+                # Create the directory
+                os.makedirs(figspath)
+                print(f"Directory '{figspath}' created.")
+        else:
+            print(f"Directory '{fullpath}' already exists.")
+
+        self.save_to_file(os.path.join(fullpath, "main"))
+        
+
+    def compile(self):
+        pass
 
     class Package(str):
         
@@ -100,4 +127,4 @@ if __name__ == "__main__":
     print(doc.documentend)
     package = Document.Package("xcolor", ["table","xcdraw"])
     print(package)
-    doc.save_doc_to_file()
+    doc.save_to_directory()
