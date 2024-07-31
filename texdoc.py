@@ -1,4 +1,5 @@
 import os
+import subprocess
 import json
 from typing import Union
 
@@ -67,6 +68,8 @@ class Document():
 
         fullpath = os.path.join(path, dirname)
         figspath = os.path.join(fullpath, "figures")
+        
+        self.projectpath = fullpath
 
         # Check if the directory exists
         if not os.path.isdir(fullpath):
@@ -79,12 +82,15 @@ class Document():
                 print(f"Directory '{figspath}' created.")
         else:
             print(f"Directory '{fullpath}' already exists.")
-
-        self.save_to_file(os.path.join(fullpath, "main"))
+        
+        self.texfile = os.path.join(self.projectpath, "main")
+        self.save_to_file(self.texfile)
         
 
-    def compile(self):
-        pass
+    def compile(self, miktex_path):
+        os.environ["PATH"] += os.pathsep + miktex_path
+        # Run pdflatex
+        subprocess.run(["pdflatex", f"--output-directory={self.projectpath}", self.texfile], check=True)
 
     class Package(str):
         
@@ -128,3 +134,4 @@ if __name__ == "__main__":
     package = Document.Package("xcolor", ["table","xcdraw"])
     print(package)
     doc.save_to_directory()
+    doc.compile("C:\\Users\\aackerman\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64")
