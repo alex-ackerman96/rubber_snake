@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.31)  18 APR 2025 12:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.31)  18 APR 2025 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,8 +216,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count281
 \l__pdf_internal_box=\box56
-)
-No file main.aux.
+) (C:\Code\Git Repositories\rubber_snake\New_TeX_Project\main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -234,6 +233,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
 LaTeX Font Info:    ... okay on input line 61.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -301,8 +301,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 63.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 63.
-
-No file main.toc.
+ (C:\Code\Git Repositories\rubber_snake\New_TeX_Project\main.toc)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
@@ -330,10 +329,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 4836 strings out of 473904
- 84793 string characters out of 5724712
+ 4842 strings out of 473904
+ 85083 string characters out of 5724712
  1927908 words of memory out of 5000000
- 27683 multiletter control sequences out of 15000+600000
+ 27685 multiletter control sequences out of 15000+600000
  560484 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,12n,65p,297b,225s stack positions out of 10000i,1000n,20000p,200000b,200000s
