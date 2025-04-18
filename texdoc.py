@@ -95,7 +95,8 @@ class Document():
         
         filename += ".tex"
         self.filename = filename 
-        with open(filename, 'w') as file:
+        self.texfile = os.path.join(self.projectpath, self.filename)
+        with open(self.texfile, 'w') as file:
             file.write(f"{self.documenthead}\n")
             for i in range(len(self.packages)):
                 file.write(self.packages[i] + "\n")
@@ -216,10 +217,10 @@ if __name__ == "__main__":
     fig1 = doc.new_figure("Wavelength.png")
     # package1 = Document.Package("xcolor", ["table","xcdraw"])
     # doc.add(package1)
-    # package2 = Document.Package("graphicx")
-    # doc.add(package2)
+    package2 = Document.Package("graphicx")
+    doc.add(package2)
     # print(doc.packages)
     # image = Document.Figure("Wavelength.png")
     # doc.add(image)
-    # doc.save_to_directory()
-    # doc.compile("C:\\Users\\aackerman\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64")
+    doc.save_to_file()
+    doc.compile("C:\\Users\\admin\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64")
