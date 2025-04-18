@@ -1,0 +1,15 @@
+{
+    "documentclass":"article",
+    "font":10,
+    "sheetsize":"a4paper",
+    "columnformat":"twocolumn",
+    "margins":[1.5, 1.5, 2.0, 2.0],
+    "packages":[{"graphicx":"None"}, 
+                {"tabularx":"None"}, 
+                {"caption":"None"}, 
+                {"subcaption":"None"}, 
+                {"booktabs":"None"}, 
+                {"float":"None"}, 
+                {"fancyhdr":"None"}, 
+                {"draftwatermark":"None"}]
+}

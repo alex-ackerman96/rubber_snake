@@ -1,0 +1,66 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[left=1.5cm, right=1.5cm, top=2.0cm, bottom=2.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{draftwatermark}
+\usepackage{dblfloatfix}
+
+% Watermark setup
+\SetWatermarkText{CONFIDENTIAL}
+\SetWatermarkScale{1.2}
+\SetWatermarkColor[gray]{0.85}
+\SetWatermarkAngle{45}
+
+% Table of contents depth
+\setcounter{tocdepth}{2}
+
+% Center all captions
+\captionsetup{justification=centering}
+
+% Header setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Electrical Component Datasheet}}
+\fancyhead[R]{\textbf{\thepage}}
+
+\title{Electrical Component Datasheet}
+\author{Your Company Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Typical Application Circuit}
+% Full-width, centered, with centered caption and subfigure labels only
+\begin{figure*}[htbp]
+    \centering
+    % First stacked subfigure, only (a) label
+    \begin{subfigure}{0.6\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption*{(a)}
+        \label{fig:app-a}
+    \end{subfigure}
+    \par\medskip % Space between images
+    % Second stacked subfigure, only (b) label
+    \begin{subfigure}{0.6\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption*{(b)}
+        \label{fig:app-b}
+    \end{subfigure}
+    \caption{
+        (a) shows the first application circuit. (b) shows the second application circuit.
+    }
+    \label{fig:typical-app}
+\end{figure*}
+
+\end{document}
