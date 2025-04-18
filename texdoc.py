@@ -129,8 +129,7 @@ class Document():
         
         self.texfile = os.path.join(self.projectpath, "main")
         self.save_to_file(self.texfile)
-        
-        
+             
     def compile(self, miktex_path):
         os.environ["PATH"] += os.pathsep + miktex_path
         # Run pdflatex
