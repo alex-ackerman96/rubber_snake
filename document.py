@@ -23,7 +23,7 @@ class Document:
         if date is not None:
             self.date = date
         else:
-            self.date = datetime.now().strftime("%Y-%m-%d")
+            self.date = datetime.now().strftime("%Y/%m/%d")
         self.sections = sectionfiles
         self.appendices = appendixfiles
         self.watermark = None
@@ -111,9 +111,12 @@ class Document:
         doc_str += "\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         doc_str += "\n% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         doc_str += "\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n"
-        doc_str += f"\\title{{{self.title}}}\n"
-        if self.subtitle:
-            doc_str += f"\\subtitle{{{self.subtitle}}}\n"
+        if self.title and self.subtitle:
+            doc_str += f"\\title{{{self.title}\\\\[1ex]{{\\large {self.subtitle}}}}}\n"
+        elif self.title:
+            doc_str += f"\\title{{{self.title}}}\n"
+        elif self.subtitle:
+            doc_str += f"\\title{{{self.subtitle}}}\n"
         if self.authors:
             doc_str += "\\author{"
             for i, author in enumerate(self.authors):
@@ -201,7 +204,7 @@ class Datasheet(Document):
         self._default_packages = [("geometry", "left=1.5cm, right=1.5cm, top=2.0cm, bottom=2.0cm"), ("graphicx", None), ("tabularx", None), ("fancyhdr", None), ("caption", None), ("subcaption", None), ("float", None), ("booktabs", None), ("fancyhdr", None), ("draftwatermark", None)]
         self.customcommands = []
         
-        self.setup_fancyhdr = [("fancyhf", None), ("fancyhead", "[L]", "{\\leftmark}"), ("fancyhead", "[R]", "{\\rightmark}"), ("fancyfoot", "[C]", "{\\thepage}")]
+        self.setup_fancyhdr = [("fancyhf", "{}"), ("fancyhead", "[L]", "{\\leftmark}"), ("fancyhead", "[R]", "{\\rightmark}"), ("fancyfoot", "[C]", "{\\thepage}")]
         self.setup_toc = [("setcounter", "{tocdepth}", "{2}")]
         self.setup_watermark = []
         
@@ -223,11 +226,12 @@ if __name__ == "__main__":
     doc.set_title("Sample Document")
     doc.set_subtitle("An example of a LaTeX document")
     doc.add_author("John Doe")
-    doc.set_date("2023-10-01")
+    # doc.set_date("2023-10-01")
     doc.add_package("graphicx", "pdftex")
     doc.add_section("introduction.tex")
     doc.add_appendix("appendix.tex")
 
-    # doc.synthesize()
+    print(doc.synthesize())
+    doc.create_directory()
     doc.save_to_file()
     doc.compile("C:\\Users\\admin\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64")
